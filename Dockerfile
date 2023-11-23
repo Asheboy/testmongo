@@ -1,5 +1,5 @@
 # Use the specific version of the official Node.js base image
-FROM node:14.21.3
+FROM node:16.20.2
 
 # Create app directory in the Docker image
 WORKDIR /usr/src/app
