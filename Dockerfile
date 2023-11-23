@@ -4,11 +4,11 @@ FROM node:12.18.0
 # Create app directory in the Docker image
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Copy package.json and yarn.lock
+COPY package.json yarn.lock ./
 
-# Install app dependencies
-RUN npm install
+# Install app dependencies using Yarn
+RUN yarn install --frozen-lockfile
 
 # Bundle app source inside Docker image
 COPY . .
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Define the command to run your app using CMD which defines your runtime
-CMD [ "node", "index.js" ]
+CMD [ "node", "app.js" ]
